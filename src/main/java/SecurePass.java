@@ -18,12 +18,12 @@ public class SecurePass {
     private static final String PASSWORD_BASE = LOWERCASE + UPPERCASE + NUMBER + OTHER_SYMBOL;
     private static final String PASSWORD_BASE_CHINA = LOWERCASE + UPPERCASE + NUMBER + OTHER_SYMBOL + CHINESE_SYMBOL;
 
-    private static final int PASSWORD_LENGTH = 12;
-    private static final int PASSWORD_NUMBERS = 3;
+    private static final int PASSWORD_LENGTH = 15;
+    private static final int PASSWORD_COUNT = 3;
 
     private static final SecureRandom random = new SecureRandom();
 
-    //Пароль без Китайский символов
+    //Password without Chinese symbols
     public static String generatePassword() {
         StringBuilder password = new StringBuilder(PASSWORD_LENGTH);
 
@@ -56,7 +56,7 @@ public class SecurePass {
 
     }
 
-    //Пароль с Китайскими символами
+    //Password with Chinese symbols
     private static String generatePasswordChina() {
         StringBuilder passwordCh = new StringBuilder(PASSWORD_LENGTH);
 
@@ -88,10 +88,10 @@ public class SecurePass {
     public static void main(String[] args) {
         List<String> passwords = new ArrayList<>();
 
-        for (int i = 0; i < PASSWORD_NUMBERS; i++) {
+        for (int i = 0; i < PASSWORD_COUNT; i++) {
             passwords.add(generatePassword());
         }
-        for (int i = 0; i < PASSWORD_NUMBERS; i++) {
+        for (int i = 0; i < PASSWORD_COUNT; i++) {
             passwords.add(generatePasswordChina());
         }
 
